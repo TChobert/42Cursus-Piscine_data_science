@@ -1,0 +1,23 @@
+secrets:
+  postgres_password:
+    external: true
+  postgres_user:
+    external: true
+  postgres_db:
+    external: true
+
+services:
+
+  db:
+    image: postgres:15
+    restart: always
+    env_file: .env
+    secrets:
+      - postgres_password
+      - postgres_user
+      - postgres_db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
