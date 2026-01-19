@@ -1,0 +1,1 @@
+\copy data_2023_jan FROM '/data/customer/data_2023_jan.csv' DELIMITER ',' CSV HEADER;

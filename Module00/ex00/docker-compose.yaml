@@ -11,12 +11,14 @@ services:
       - postgres_db
     volumes:
       - pgdata:/var/lib/postgresql/data
+      - ${CSV_PATH}:/data
+      - ${EX02_PATH}:/scripts
     networks:
       - piscineds_network
     restart: always
 
   pgadmin:
-    image: dpage/pgadmin4:latest
+    image: dpage/pgadmin4:8.12
     ports:
       - "8080:80"
     env_file: .env
@@ -40,3 +42,5 @@ networks:
 volumes:
   pgdata:
     external: true
+  data:
+  scripts:
